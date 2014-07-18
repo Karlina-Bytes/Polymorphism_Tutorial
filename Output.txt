@@ -1,101 +1,102 @@
-//************************************************************
-//  main.cpp
-//  Polymorphism_Project
-//
-//  Created by Karlina Beringer on July 13, 2014.
-//
-//  This driver file implements the abstract class, Polygon.
-//  It also implements descendants, Triangle and Rectangle.
-//  This program demonstrates polymorphism in C++.
-//************************************************************
+Create a default Triangle object, trig1...
+	POLYGON/TRIANGLE
+	{
+		color = orange
+		A = (0,0)
+		B = (0,3)
+		C = (4,0)
+		side a = BC = 5
+		side b = AC = 4
+		side c = AB = 3
+		perimeter = 12
+		area = 6
+	}
 
-#include "Polygon.h"
-#include "Triangle.h"
-#include "Quadrilateral.h"
+Create a custom Triangle object, trig2...
+	POLYGON/TRIANGLE
+	{
+		color = blue
+		A = (-1,-1)
+		B = (0,10)
+		C = (-6,6)
+		side a = BC = 7.2111
+		side b = AC = 8.60233
+		side c = AB = 11.0454
+		perimeter = 26.8588
+		area = 31
+	}
 
-#include <ctime>
-#include <cstdlib>
+Create a copy of trig2 called trig3...
+	POLYGON/TRIANGLE
+	{
+		color = blue
+		A = (-1,-1)
+		B = (0,10)
+		C = (-6,6)
+		side a = BC = 7.2111
+		side b = AC = 8.60233
+		side c = AB = 11.0454
+		perimeter = 26.8588
+		area = 31
+	}
 
-int main()
-{
-    //--------------------------------------------------------
-    // The statement below would cause an error.
-    // Abstract classes CANNOT be instantiated directly.
-    //--------------------------------------------------------
-    // Polygon polygon;
+Use pointer of type Polygon to access trig3.
+Notice that Polygon's print method is called...
+	POLYGON
+	{
+		color = blue
+	}
 
-    //--------------------------------------------------------
-    // Although we cannot create instances of Polygon,
-    // we can create pointer of type Polygon.
-    // These pointers can reference instances of
-    // the Rectangle and Quadrilateral classes.
-    //--------------------------------------------------------
-    Polygon * polygon;
-    
-    //--------------------------------------------------------
-    // Create a default Triangle object, trig1.
-    //--------------------------------------------------------
-    cout << "Create a default Triangle object, trig1...\n";
-    Triangle trig1;
-    cout << trig1;
-    
-    //--------------------------------------------------------
-    // Create a custom Triangle object, trig2.
-    //--------------------------------------------------------
-    cout << "Create a custom Triangle object, trig2...\n";
-    Point A( -1, -1 ), B( 0, 10 ), C( -6, 6 );
-    Triangle trig2( "blue", A, B, C );
-    cout << trig2;
-    
-    //--------------------------------------------------------
-    // Create a copy of trig2 called trig3.
-    //--------------------------------------------------------
-    cout << "Create a copy of trig2 called trig3...\n";
-    Triangle trig3( trig2 );
-    cout << trig3;
-    
-    //--------------------------------------------------------
-    // Use pointer of type Polygon to access trig3.
-    //--------------------------------------------------------
-    cout << "Use pointer of type Polygon to access trig3.\n";
-    cout << "Notice that Polygon's print method is called...\n";
-    polygon = &trig3;
-    cout << *polygon;
-    
-    //--------------------------------------------------------
-    // Use pointer of type Triangle to access trig3.
-    //--------------------------------------------------------
-    cout << "Use pointer of type Triangle to access trig3.\n";
-    cout << "Notice that Triangle's print method is called...\n";
-    Triangle * triangle = &trig3;
-    cout << *triangle;
-    
-    //--------------------------------------------------------
-    // Create a default Quadrilateral object, quad1.
-    //--------------------------------------------------------
-    cout << "Create a default Quadrilateral object, quad1....\n";
-    Quadrilateral quad1;
-    cout << quad1;
-    
-    //--------------------------------------------------------
-    // Create a custom Triangle object, trig2.
-    //--------------------------------------------------------
-    cout << "Create a custom Triangle object, trig2.\n";
-    cout << "Randomly generate four points...\n";
-    srand (time(NULL));
-    double randomValues[8];
-    for (int i = 0; i < 8; i++)
-        randomValues[i] = rand() % 100;
-    Point W( randomValues[0], randomValues[1] );
-    Point X( randomValues[2], randomValues[3] );
-    Point Y( randomValues[4], randomValues[5] );
-    Point Z( randomValues[6], randomValues[7] );
-    Quadrilateral quad2( "green", W, X, Y, Z );
-    cout << quad2;
-    
-    return 0;
-}
-//************************************************************
-// End of File
-//************************************************************
+Use pointer of type Triangle to access trig3.
+Notice that Triangle's print method is called...
+	POLYGON/TRIANGLE
+	{
+		color = blue
+		A = (-1,-1)
+		B = (0,10)
+		C = (-6,6)
+		side a = BC = 7.2111
+		side b = AC = 8.60233
+		side c = AB = 11.0454
+		perimeter = 26.8588
+		area = 31
+	}
 
+Create a default Quadrilateral object, quad1....
+	POLYGON/QUADRILATERAL
+	{
+		color = orange
+		A = (0,0)
+		B = (0,5)
+		C = (4,5)
+		D = (4,0)
+		AB = 5
+		BC = 4
+		CD = 5
+		DA = 4
+		AC = 6.40312
+		BD = 6.40312
+		perimeter = 18
+		area = 20
+	}
+
+Create a custom Triangle object, trig2.
+Randomly generate four points...
+	POLYGON/QUADRILATERAL
+	{
+		color = green
+		A = (68,5)
+		B = (40,17)
+		C = (95,61)
+		D = (76,30)
+		AB = 30.4631
+		BC = 70.4344
+		CD = 36.3593
+		DA = 26.2488
+		AC = 62.1691
+		BD = 38.2753
+		perimeter = 163.506
+		area = 1059.5
+	}
+
+Program ended with exit code: 0
